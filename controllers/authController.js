@@ -9,7 +9,7 @@ class AuthController {
     } catch (error) {
       res.status(500).json({
         result: {
-          message: ERROR.INTERNAL_SERVER_ERROR,
+          message: error,
           success: false,
         },
       });
@@ -24,7 +24,7 @@ class AuthController {
     } catch (error) {
       res.status(500).json({
         result: {
-          message: ERROR.INTERNAL_SERVER_ERROR,
+          message: error.message,
           success: false,
         },
       });

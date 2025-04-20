@@ -27,9 +27,7 @@ const signUp = async ({ name, email, password }) => {
 const login = async (email, password) => {
   const user = await findUserByEmail(email);
   if (!user) {
-    const error = new Error(ERROR.EMAIL_NOT_EXIST);
-    error.statusCode = 401;
-    throw error;
+    throw new Error(ERROR.EMAIL_NOT_EXIST );
   }
 
   const isMatch = await bcrypt.compare(password.toString(), user.password);
