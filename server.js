@@ -5,8 +5,10 @@ const app = express();
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("welcome to home page");
+});
 app.use("/api/v1/", router);
-
 const startServer = async () => {
   try {
     await connectToDB();
